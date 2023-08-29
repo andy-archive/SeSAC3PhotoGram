@@ -7,9 +7,11 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController {
+final class SearchViewController: BaseViewController {
     
     let mainView = SearchView()
+    
+    var delegate: PassImageDelegate?
     
     let imageList = ["pencil", "eraser", "star", "person", "paperplane", "clipboard"]
     
@@ -40,6 +42,8 @@ class SearchViewController: BaseViewController {
     }
 }
 
+//MARK: SearchCollectionView & SearchCollectionViewCell
+
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,14 +67,17 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        NotificationCenter.default.post(
-            name: NSNotification.Name("SelectImage"),
-            object: nil,
-            userInfo: [
-                "name": imageList[indexPath.item],
-                "nickname": "Andy"
-            ]
-        )
+        delegate?.receiveImage(image: UIImage(systemName: imageList[indexPath.item])!)
+        
+//        NotificationCenter.default.post(
+//            name: NSNotification.Name("SelectImage"),
+//            object: nil,
+//            userInfo: [
+//                "name": imageList[indexPath.item],
+//                "nickname": "Andy"
+//            ]
+//        )
+        
         dismiss(animated: true)
     }
     

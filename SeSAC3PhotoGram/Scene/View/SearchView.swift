@@ -38,7 +38,7 @@ final class SearchView: BaseView {
         }
     }
     
-    func setCollectionViewLayout() -> UICollectionViewFlowLayout {
+    private func setCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8

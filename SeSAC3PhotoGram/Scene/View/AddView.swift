@@ -22,8 +22,42 @@ final class AddView: BaseView {
         return view
     }()
     
+    let dateButton = {
+        let view = UIButton()
+        view.backgroundColor = .systemTeal
+        view.setTitle(DateFormatter.today(), for: .normal)
+        return view
+    }()
+    
+    let titleButton = {
+        let view = UIButton()
+        view.backgroundColor = .systemOrange
+        view.setTitle("오늘의 사진", for: .normal)
+        return view
+    }()
+    
+    let searchProtocolButton = {
+        let view = UIButton()
+        view.backgroundColor = .systemBlue
+        return view
+    }()
+    
+    let contentButton = {
+        let view = UIButton()
+        view.backgroundColor = .brown
+        view.setTitle("컨텐츠", for: .normal)
+        return view
+    }()
+    
+    let webButton = {
+        let view = UIButton()
+        view.backgroundColor = .systemIndigo
+        view.setTitle("애플 홈페이지로 이동", for: .normal)
+        return view
+    }()
+    
     override func configureView() {
-        [photoImageView, searchButton].forEach {
+        [photoImageView, searchButton, dateButton, searchProtocolButton, titleButton, contentButton, webButton].forEach {
             self.addSubview($0)
         }
     }
@@ -37,6 +71,35 @@ final class AddView: BaseView {
         searchButton.snp.makeConstraints { make in
             make.size.equalTo(50)
             make.bottom.trailing.equalTo(photoImageView)
+        }
+        
+        dateButton.snp.makeConstraints { make in
+            make.top.equalTo(photoImageView.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(50)
+        }
+        
+        searchProtocolButton.snp.makeConstraints { make in
+            make.size.equalTo(50)
+            make.bottom.leading.equalTo(photoImageView)
+        }
+        
+        titleButton.snp.makeConstraints { make in
+            make.top.equalTo(dateButton.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(50)
+        }
+        
+        contentButton.snp.makeConstraints { make in
+            make.top.equalTo(titleButton.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(70)
+        }
+        
+        webButton.snp.makeConstraints { make in
+            make.top.equalTo(contentButton.snp.bottom).offset(10)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.height.equalTo(40)
         }
     }
 }
