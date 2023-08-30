@@ -28,7 +28,7 @@ final class AddViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        APIService.shared.callRequest()
+        // APIService.shared.callRequest()
         
         // open & public -> 모듈로 접근 가능
         // ClassOpenExample.publicFunction()
@@ -61,29 +61,48 @@ final class AddViewController: BaseViewController {
         )
     }
     
-    @objc func selectImageNotificationObserver(notification: NSNotification) {
+    override func showAlert(title: String, message: String, topButton: String, bottomButton: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let galleryButton = UIAlertAction(title: topButton, style: .default)
+        let webButton = UIAlertAction(title: bottomButton, style: .default) { action in
+            self.navigationController?.pushViewController(
+                SearchViewController(),
+                animated: true
+            )
+        }
+        let cancel = UIAlertAction(title: "취소", style: .default)
+        alert.addAction(galleryButton)
+        alert.addAction(webButton)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+    
+    @objc
+    func selectImageNotificationObserver(notification: NSNotification) {
         if let name = notification.userInfo?["name"] as? String {
             mainView.photoImageView.image = UIImage(systemName: name)
         }
     }
     
-    @objc func searchButtonClicked() {
-        let words = ["A", "B", "C", "D", "E"]
-        
-        NotificationCenter.default.post(
-            name: NSNotification.Name("RecommandKeyword"),
-            object: nil,
-            userInfo: [
-                "word": words.randomElement()!
-            ]
-        )
-        navigationController?.pushViewController(
-            SearchViewController(),
-            animated: true
-        )
+    @objc
+    func searchButtonClicked() {
+        showAlert(title: "어떤 것을 검색하시겠습니까?", message: "선택하세요", topButton: "갤러리에서 가져오기", bottomButton: "웹에서 검색하기")
+//        let words = ["A", "B", "C", "D", "E"]
+//        NotificationCenter.default.post(
+//            name: NSNotification.Name("RecommandKeyword"),
+//            object: nil,
+//            userInfo: [
+//                "word": words.randomElement()!
+//            ]
+//        )
+//        navigationController?.pushViewController(
+//            SearchViewController(),
+//            animated: true
+//        )
     }
     
-    @objc func dateButtonClicked() {
+    @objc
+    func dateButtonClicked() {
         let vc = DateViewController() // 프로토콜의 값 전달 (5)
         vc.delegate = self
         navigationController?.pushViewController(
@@ -92,13 +111,15 @@ final class AddViewController: BaseViewController {
         )
     }
     
-    @objc func searchProtocolButtonClicked() {
+    @objc
+    func searchProtocolButtonClicked() {
         let vc = SearchViewController()
         vc.delegate = self
         present(vc, animated: true)
     }
     
-    @objc func titleButtonClicked() {
+    @objc
+    func titleButtonClicked() {
         let vc = TitleViewController()
         vc.completionHandler = { text, age, isPushed in
             self.mainView.titleButton.setTitle(text, for: .normal)
@@ -107,7 +128,8 @@ final class AddViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func contentButtonClicked() {
+    @objc
+    func contentButtonClicked() {
         let vc = TitleViewController()
         vc.completionHandler = { text, age, isPushed in
             self.mainView.contentButton.setTitle(text, for: .normal)
@@ -116,7 +138,8 @@ final class AddViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func webButtonClicked() {
+    @objc
+    func webButtonClicked() {
         let vc = WebViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
@@ -158,7 +181,7 @@ final class AddViewController: BaseViewController {
             for: .touchUpInside
         )
         
-        APIService.shared.callRequest() // Shared Session
+        // APIService.shared.callRequest() // Shared Session
         
         // 잘못된 방식
         // APIService() // 이렇게 인스턴스를 만드는 일은 없어야 한다 -> 의도적으로 사용을 방지해야 함 -> private init()
@@ -169,7 +192,6 @@ extension AddViewController: PassDateDelegate {  // 프로토콜의 값 전달 (
     func receiveDate(date: Date) {
         mainView.dateButton.setTitle(DateFormatter.convertDate(date: date), for: .normal)
     }
-    
 }
 
 //MARK: PassImageDelegate

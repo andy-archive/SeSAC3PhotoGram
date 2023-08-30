@@ -12,8 +12,7 @@ final class SearchViewController: BaseViewController {
     let mainView = SearchView()
     
     var delegate: PassImageDelegate?
-    
-    let imageList = ["pencil", "eraser", "star", "person", "paperplane", "clipboard"]
+    var imageList = [Photo]()
     
     override func loadView() {
         self.view = mainView
@@ -63,14 +62,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         
-        cell.imageView.image = UIImage(systemName: imageList[indexPath.item])
+//        cell.imageView.image = UIImage(systemName: imageList[indexPath.item])
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        delegate?.receiveImage(image: UIImage(systemName: imageList[indexPath.item])!)
+//        delegate?.receiveImage(image: UIImage(systemName: imageList[indexPath.item])!)
         
 //        NotificationCenter.default.post(
 //            name: NSNotification.Name("SelectImage"),
@@ -80,7 +79,6 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
 //                "nickname": "Andy"
 //            ]
 //        )
-        
         dismiss(animated: true)
     }
     

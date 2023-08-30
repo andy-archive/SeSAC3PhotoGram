@@ -24,6 +24,7 @@ class APIService {
             print(data)
 //            let value = String(data: data!, encoding: .utf8)
 //            print("VALUE: \(value)")
+            
             print(response)
             print(error)
             
