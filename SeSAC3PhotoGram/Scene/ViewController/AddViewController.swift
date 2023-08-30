@@ -28,6 +28,8 @@ final class AddViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        APIService.shared.callRequest()
+        
         // open & public -> 모듈로 접근 가능
         // ClassOpenExample.publicFunction()
         // ClassPublicExample.publicFunction()
@@ -116,6 +118,7 @@ final class AddViewController: BaseViewController {
     
     @objc func webButtonClicked() {
         let vc = WebViewController()
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
 //        navigationController?.pushViewController(vc, animated: true)
     }
@@ -154,6 +157,11 @@ final class AddViewController: BaseViewController {
             action: #selector(webButtonClicked),
             for: .touchUpInside
         )
+        
+        APIService.shared.callRequest() // Shared Session
+        
+        // 잘못된 방식
+        // APIService() // 이렇게 인스턴스를 만드는 일은 없어야 한다 -> 의도적으로 사용을 방지해야 함 -> private init()
     }
 }
 

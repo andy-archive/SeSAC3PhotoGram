@@ -11,13 +11,13 @@ final class DateViewController: BaseViewController {
     
     let mainView = DateView()
     
-    var delegate: PassDateDelegate? // // 프로토콜 값 전달 (2)
+    var delegate: PassDateDelegate? // 프로토콜의 값 전달 (2)
     
     override func loadView() {
         self.view = mainView
     }
     
-    override func viewDidDisappear(_ animated: Bool) { // 프로토콜 값 전달 (3)
+    override func viewDidDisappear(_ animated: Bool) { // 프로토콜의 값 전달 (3)
         super.viewDidDisappear(animated)
         
         delegate?.receiveDate(date: mainView.picker.date) // 시키기만 함

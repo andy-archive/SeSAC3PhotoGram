@@ -9,7 +9,7 @@ import UIKit
 
 final class SearchView: BaseView {
     
-    private let searchBar = {
+    let searchBar = {
         let view = UISearchBar()
         view.placeholder = "검색어를 입력하세요"
         return view

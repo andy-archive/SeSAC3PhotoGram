@@ -29,6 +29,9 @@ final class SearchViewController: BaseViewController {
             name: NSNotification.Name("RecommandKeyword"),
             object: nil
         )
+        
+        mainView.searchBar.becomeFirstResponder()
+        mainView.searchBar.delegate = self
     }
     
     @objc func recommandKeywordNotificationObserver(notification: NSNotification) {
@@ -81,4 +84,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         dismiss(animated: true)
     }
     
+}
+
+//MARK: UISearchBarDelegate
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        mainView.searchBar.resignFirstResponder() // 현재 FirstResponder를 포기해
+    }
 }

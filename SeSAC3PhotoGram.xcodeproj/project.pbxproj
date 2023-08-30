@@ -15,6 +15,8 @@
 		385073882A9D9BE400B349C1 /* SeSACKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 385073832A9D9BB800B349C1 /* SeSACKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3850738E2A9DB55C00B349C1 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850738D2A9DB55B00B349C1 /* TitleViewController.swift */; };
 		385073902A9DC76200B349C1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850738F2A9DC76200B349C1 /* WebViewController.swift */; };
+		38534B672A9EC77E00638175 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B662A9EC77E00638175 /* APIService.swift */; };
+		38534B692A9EEBE100638175 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B682A9EEBE100638175 /* URLSessionViewController.swift */; };
 		38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */; };
 		38DEF4252A9C1D9B00E73464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */; };
 		38DEF42C2A9C1D9C00E73464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SeSACKit.xcodeproj; path = ../SeSACKit/SeSACKit.xcodeproj; sourceTree = "<group>"; };
 		3850738D2A9DB55B00B349C1 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		3850738F2A9DC76200B349C1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		38534B662A9EC77E00638175 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		38534B682A9EEBE100638175 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		38DEF41F2A9C1D9B00E73464 /* SeSAC3PhotoGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3PhotoGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +129,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		38534B652A9EC77700638175 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				38534B662A9EC77E00638175 /* APIService.swift */,
+				38534B682A9EEBE100638175 /* URLSessionViewController.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		38DEF4162A9C1D9B00E73464 = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +159,12 @@
 		38DEF4212A9C1D9B00E73464 /* SeSAC3PhotoGram */ = {
 			isa = PBXGroup;
 			children = (
-				385073372A9D7BB500B349C1 /* Extension */,
 				38DEF43F2A9C1EC700E73464 /* .gitignore */,
 				38DEF4362A9C1DBC00E73464 /* Application */,
 				38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */,
+				385073372A9D7BB500B349C1 /* Extension */,
 				38DEF4302A9C1D9C00E73464 /* Info.plist */,
+				38534B652A9EC77700638175 /* Network */,
 				38DEF4372A9C1DC600E73464 /* Scene */,
 				38DEF4462A9C2EC600E73464 /* Utils */,
 			);
@@ -326,8 +340,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38534B672A9EC77E00638175 /* APIService.swift in Sources */,
 				38DEF44B2A9C2FF800E73464 /* AddView.swift in Sources */,
 				38DEF4452A9C274700E73464 /* SearchViewController.swift in Sources */,
+				38534B692A9EEBE100638175 /* URLSessionViewController.swift in Sources */,
 				38DEF4502A9C365D00E73464 /* BaseCollectionViewCell.swift in Sources */,
 				38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */,
 				38DEF4522A9C37F600E73464 /* SearchCollectionViewCell.swift in Sources */,
