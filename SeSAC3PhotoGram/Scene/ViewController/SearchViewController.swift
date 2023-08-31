@@ -11,7 +11,8 @@ final class SearchViewController: BaseViewController {
     
     let mainView = SearchView()
     
-    var delegate: PassImageDelegate?
+    weak var delegate: PassImageDelegate?
+    
     var imageList = [Photo]()
     
     override func loadView() {
@@ -31,6 +32,10 @@ final class SearchViewController: BaseViewController {
         
         mainView.searchBar.becomeFirstResponder()
         mainView.searchBar.delegate = self
+    }
+    
+    deinit { // 소멸자
+        print("deinit", self)
     }
     
     @objc func recommandKeywordNotificationObserver(notification: NSNotification) {

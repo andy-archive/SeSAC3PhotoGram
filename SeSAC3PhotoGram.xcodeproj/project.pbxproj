@@ -19,6 +19,9 @@
 		38534B692A9EEBE100638175 /* URLSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B682A9EEBE100638175 /* URLSessionViewController.swift */; };
 		38534B6E2A9F6F0100638175 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B6D2A9F6F0100638175 /* APIKey.swift */; };
 		38534B712A9F8F9000638175 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B702A9F8F9000638175 /* Photo.swift */; };
+		38534B762AA01A7800638175 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B752AA01A7800638175 /* HomeViewController.swift */; };
+		38534B782AA01A7F00638175 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B772AA01A7F00638175 /* HomeView.swift */; };
+		38534B7B2AA0209C00638175 /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */; };
 		38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */; };
 		38DEF4252A9C1D9B00E73464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */; };
 		38DEF42C2A9C1D9C00E73464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */; };
@@ -78,6 +81,9 @@
 		38534B682A9EEBE100638175 /* URLSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionViewController.swift; sourceTree = "<group>"; };
 		38534B6D2A9F6F0100638175 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		38534B702A9F8F9000638175 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		38534B752AA01A7800638175 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		38534B772AA01A7F00638175 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
 		38DEF41F2A9C1D9B00E73464 /* SeSAC3PhotoGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3PhotoGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +157,14 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		38534B792AA0208E00638175 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		38DEF4162A9C1D9B00E73464 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +224,7 @@
 				38DEF4442A9C274700E73464 /* SearchViewController.swift */,
 				3850738D2A9DB55B00B349C1 /* TitleViewController.swift */,
 				3850738F2A9DC76200B349C1 /* WebViewController.swift */,
+				38534B752AA01A7800638175 /* HomeViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -225,6 +240,7 @@
 		38DEF4462A9C2EC600E73464 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				38534B792AA0208E00638175 /* Protocol */,
 				38DEF4472A9C2ECF00E73464 /* Base */,
 				385073372A9D7BB500B349C1 /* Extension */,
 				38534B652A9EC77700638175 /* Network */,
@@ -246,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				38DEF44A2A9C2FF800E73464 /* AddView.swift */,
+				38534B772AA01A7F00638175 /* HomeView.swift */,
 				3850733A2A9D7C7E00B349C1 /* DateView.swift */,
 				38DEF4512A9C37F600E73464 /* SearchCollectionViewCell.swift */,
 				38DEF44D2A9C337400E73464 /* SearchView.swift */,
@@ -359,6 +376,8 @@
 				38DEF44B2A9C2FF800E73464 /* AddView.swift in Sources */,
 				38DEF4452A9C274700E73464 /* SearchViewController.swift in Sources */,
 				38534B712A9F8F9000638175 /* Photo.swift in Sources */,
+				38534B782AA01A7F00638175 /* HomeView.swift in Sources */,
+				38534B762AA01A7800638175 /* HomeViewController.swift in Sources */,
 				38534B692A9EEBE100638175 /* URLSessionViewController.swift in Sources */,
 				38DEF4502A9C365D00E73464 /* BaseCollectionViewCell.swift in Sources */,
 				38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */,
@@ -371,6 +390,7 @@
 				38DEF4492A9C2F9D00E73464 /* BaseView.swift in Sources */,
 				38DEF43E2A9C1EA200E73464 /* AddViewController.swift in Sources */,
 				3850733F2A9D8E8600B349C1 /* DateFormat+.swift in Sources */,
+				38534B7B2AA0209C00638175 /* HomeViewProtocol.swift in Sources */,
 				38DEF4252A9C1D9B00E73464 /* SceneDelegate.swift in Sources */,
 				3850738E2A9DB55C00B349C1 /* TitleViewController.swift in Sources */,
 				385073902A9DC76200B349C1 /* WebViewController.swift in Sources */,

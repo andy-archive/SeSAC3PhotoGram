@@ -8,11 +8,11 @@
 import UIKit
 import SeSACKit
 
-protocol PassDateDelegate { // 프로토콜의 값 전달 (1)
+protocol PassDateDelegate: AnyObject { // 프로토콜의 값 전달 (1)
     func receiveDate(date: Date)
 }
 
-protocol PassImageDelegate {
+protocol PassImageDelegate: AnyObject {
     func receiveImage(image: UIImage)
 }
 
@@ -36,6 +36,10 @@ final class AddViewController: BaseViewController {
         
         // internal -> 모듈로 접근 불가
         // ClassInternalExample.publicFunction() // Cannot find 'ClassInternalExample' in scope
+    }
+    
+    deinit { // 소멸자
+        print("deinit", self)
     }
    
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +107,9 @@ final class AddViewController: BaseViewController {
     
     @objc
     func dateButtonClicked() {
-        let vc = DateViewController() // 프로토콜의 값 전달 (5)
-        vc.delegate = self
+//        let vc = DateViewController() // 프로토콜의 값 전달 (5)
+//        vc.delegate = self
+        let vc = HomeViewController() // 실습을 위해 임시로 변경
         navigationController?.pushViewController(
             vc,
             animated: true

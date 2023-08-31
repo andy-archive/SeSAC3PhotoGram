@@ -11,10 +11,14 @@ final class DateViewController: BaseViewController {
     
     let mainView = DateView()
     
-    var delegate: PassDateDelegate? // 프로토콜의 값 전달 (2)
+    weak var delegate: PassDateDelegate? // 프로토콜의 값 전달 (2)
     
     override func loadView() {
         self.view = mainView
+    }
+    
+    deinit { // 소멸자
+        print("deinit", self)
     }
     
     override func viewDidDisappear(_ animated: Bool) { // 프로토콜의 값 전달 (3)

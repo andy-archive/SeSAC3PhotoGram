@@ -31,6 +31,10 @@ final class WebViewController: BaseViewController, WKUIDelegate {
         requestWebView()
     }
     
+    deinit { // 소멸자
+        print("deinit", self)
+    }
+    
     override func configureView() {
         super.configureView()
         
