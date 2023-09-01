@@ -14,8 +14,8 @@ final class HomeView: BaseView {
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register( SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell" )
-        view.dataSource = self
-        view.delegate = self
+//        view.dataSource = self
+//        view.delegate = self
         view.collectionViewLayout = setCollectionViewLayout()
         return view
     }()
@@ -25,7 +25,7 @@ final class HomeView: BaseView {
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
-        let size = UIScreen.main.bounds.width - 60 // self.frame.width - 40
+        let size = UIScreen.main.bounds.width - 32 // self.frame.width - 40
         layout.itemSize = CGSize(width: size / 3, height: size / 3)
         return layout
     }
@@ -42,20 +42,3 @@ final class HomeView: BaseView {
     }
 }
 
-extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell else { return UICollectionViewCell() }
-        cell.imageView.backgroundColor = .systemBlue
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(#function)
-        delegate?.didSelectItemAt(indexPath: indexPath)
-    }
-}

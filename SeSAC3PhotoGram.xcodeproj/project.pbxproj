@@ -11,8 +11,6 @@
 		3850733B2A9D7C7E00B349C1 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850733A2A9D7C7E00B349C1 /* DateView.swift */; };
 		3850733D2A9D7DB600B349C1 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850733C2A9D7DB600B349C1 /* DateViewController.swift */; };
 		3850733F2A9D8E8600B349C1 /* DateFormat+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850733E2A9D8E8600B349C1 /* DateFormat+.swift */; };
-		385073872A9D9BE400B349C1 /* SeSACKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385073832A9D9BB800B349C1 /* SeSACKit.framework */; };
-		385073882A9D9BE400B349C1 /* SeSACKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 385073832A9D9BB800B349C1 /* SeSACKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3850738E2A9DB55C00B349C1 /* TitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850738D2A9DB55B00B349C1 /* TitleViewController.swift */; };
 		385073902A9DC76200B349C1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3850738F2A9DC76200B349C1 /* WebViewController.swift */; };
 		38534B672A9EC77E00638175 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B662A9EC77E00638175 /* APIService.swift */; };
@@ -22,6 +20,7 @@
 		38534B762AA01A7800638175 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B752AA01A7800638175 /* HomeViewController.swift */; };
 		38534B782AA01A7F00638175 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B772AA01A7F00638175 /* HomeView.swift */; };
 		38534B7B2AA0209C00638175 /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */; };
+		38895F712AA084890083AE46 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38895F702AA084890083AE46 /* URLSession.swift */; };
 		38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */; };
 		38DEF4252A9C1D9B00E73464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */; };
 		38DEF42C2A9C1D9C00E73464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */; };
@@ -38,43 +37,11 @@
 		38DEF4522A9C37F600E73464 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4512A9C37F600E73464 /* SearchCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		385073822A9D9BB800B349C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3850734A2A9D92AE00B349C1;
-			remoteInfo = SeSACKit;
-		};
-		385073842A9D9BB800B349C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 385073542A9D92AE00B349C1;
-			remoteInfo = SeSACKitTests;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		385073892A9D9BE400B349C1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				385073882A9D9BE400B349C1 /* SeSACKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		385073382A9D7BC100B349C1 /* NSNotification+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+.swift"; sourceTree = "<group>"; };
 		3850733A2A9D7C7E00B349C1 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		3850733C2A9D7DB600B349C1 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
 		3850733E2A9D8E8600B349C1 /* DateFormat+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormat+.swift"; sourceTree = "<group>"; };
-		3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SeSACKit.xcodeproj; path = ../SeSACKit/SeSACKit.xcodeproj; sourceTree = "<group>"; };
 		3850738D2A9DB55B00B349C1 /* TitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewController.swift; sourceTree = "<group>"; };
 		3850738F2A9DC76200B349C1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		38534B662A9EC77E00638175 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -84,7 +51,8 @@
 		38534B752AA01A7800638175 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		38534B772AA01A7F00638175 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
-		38DEF41F2A9C1D9B00E73464 /* SeSAC3PhotoGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3PhotoGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38895F702AA084890083AE46 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		38895FB32AA181B50083AE46 /* SeSAC3PhotoGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3PhotoGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +75,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				38DEF43C2A9C1E8600E73464 /* SnapKit in Frameworks */,
-				385073872A9D9BE400B349C1 /* SeSACKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,18 +85,10 @@
 			isa = PBXGroup;
 			children = (
 				385073382A9D7BC100B349C1 /* NSNotification+.swift */,
+				38895F702AA084890083AE46 /* URLSession.swift */,
 				3850733E2A9D8E8600B349C1 /* DateFormat+.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		3850737E2A9D9BB800B349C1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				385073832A9D9BB800B349C1 /* SeSACKit.framework */,
-				385073852A9D9BB800B349C1 /* SeSACKitTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		385073862A9D9BE400B349C1 /* Frameworks */ = {
@@ -142,9 +101,9 @@
 		38534B652A9EC77700638175 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				38534B6D2A9F6F0100638175 /* APIKey.swift */,
 				38534B662A9EC77E00638175 /* APIService.swift */,
 				38534B682A9EEBE100638175 /* URLSessionViewController.swift */,
-				38534B6D2A9F6F0100638175 /* APIKey.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -168,19 +127,10 @@
 		38DEF4162A9C1D9B00E73464 = {
 			isa = PBXGroup;
 			children = (
-				3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */,
-				38DEF4212A9C1D9B00E73464 /* SeSAC3PhotoGram */,
-				38DEF4202A9C1D9B00E73464 /* Products */,
+				38895FB32AA181B50083AE46 /* SeSAC3PhotoGram.app */,
 				385073862A9D9BE400B349C1 /* Frameworks */,
+				38DEF4212A9C1D9B00E73464 /* SeSAC3PhotoGram */,
 			);
-			sourceTree = "<group>";
-		};
-		38DEF4202A9C1D9B00E73464 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				38DEF41F2A9C1D9B00E73464 /* SeSAC3PhotoGram.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		38DEF4212A9C1D9B00E73464 /* SeSAC3PhotoGram */ = {
@@ -280,7 +230,6 @@
 				38DEF41B2A9C1D9B00E73464 /* Sources */,
 				38DEF41C2A9C1D9B00E73464 /* Frameworks */,
 				38DEF41D2A9C1D9B00E73464 /* Resources */,
-				385073892A9D9BE400B349C1 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,7 +240,7 @@
 				38DEF43B2A9C1E8600E73464 /* SnapKit */,
 			);
 			productName = SeSAC3PhotoGram;
-			productReference = 38DEF41F2A9C1D9B00E73464 /* SeSAC3PhotoGram.app */;
+			productReference = 38895FB32AA181B50083AE46 /* SeSAC3PhotoGram.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -321,37 +270,14 @@
 			packageReferences = (
 				38DEF43A2A9C1E8600E73464 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
-			productRefGroup = 38DEF4202A9C1D9B00E73464 /* Products */;
+			productRefGroup = 38DEF4162A9C1D9B00E73464;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 3850737E2A9D9BB800B349C1 /* Products */;
-					ProjectRef = 3850737D2A9D9BB800B349C1 /* SeSACKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				38DEF41E2A9C1D9B00E73464 /* SeSAC3PhotoGram */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		385073832A9D9BB800B349C1 /* SeSACKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SeSACKit.framework;
-			remoteRef = 385073822A9D9BB800B349C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		385073852A9D9BB800B349C1 /* SeSACKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SeSACKitTests.xctest;
-			remoteRef = 385073842A9D9BB800B349C1 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		38DEF41D2A9C1D9B00E73464 /* Resources */ = {
@@ -373,6 +299,7 @@
 			files = (
 				38534B672A9EC77E00638175 /* APIService.swift in Sources */,
 				38534B6E2A9F6F0100638175 /* APIKey.swift in Sources */,
+				38895F712AA084890083AE46 /* URLSession.swift in Sources */,
 				38DEF44B2A9C2FF800E73464 /* AddView.swift in Sources */,
 				38DEF4452A9C274700E73464 /* SearchViewController.swift in Sources */,
 				38534B712A9F8F9000638175 /* Photo.swift in Sources */,

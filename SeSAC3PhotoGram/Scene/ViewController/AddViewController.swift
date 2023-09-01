@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SeSACKit
+//import SeSACKit
 
 protocol PassDateDelegate: AnyObject { // 프로토콜의 값 전달 (1)
     func receiveDate(date: Date)
@@ -27,6 +27,8 @@ final class AddViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        APIService.shared.callRequest(query: "sky")
         
         // APIService.shared.callRequest()
         
