@@ -7,7 +7,7 @@
 
 import Foundation
 
-class APIService {
+final class APIService {
     
     private init() {} // 생성자 구문을 클래스 안에서만 쓸 수 있게 접근 제어
     
@@ -15,15 +15,18 @@ class APIService {
     
     func callRequest(query: String, completionHandler: @escaping (Photo?) -> Void) {
         
-//        guard let url = URL(string: "www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1080") else { return }
-//        guard let url = URL(string: "https://apod.nasa.gov/apod/image/2308/M66_JwstTomlinson_3521.jpg") else { return }
-        guard let url = URL(string: "https://api.unsplash.com/search/photos/?query=\(query)&client_id=\(APIKey.unsplashAccess)") else { return }
+        //guard let url = URL(string: "www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=1080") else { return }
+        //guard let url = URL(string: "https://apod.nasa.gov/apod/image/2308/M66_JwstTomlinson_3521.jpg") else { return }
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+        let url = URL(string: "https://api.unsplash.com/search/photos/?query=\(query)&client_id=\(APIKey.unsplashAccess)")
+        guard let url = url else { return }
+        
         var request = URLRequest(url: url, timeoutInterval: 10)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        // global 스레드에서 동작
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        URLSession.shared.dataTask(with: request) { data, response, error in // global 스레드에서 동작
 
             //let value = String(data: data!, encoding: .utf8)
             //print("VALUE: \(value)")
@@ -36,19 +39,18 @@ class APIService {
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, (200...500).contains(response.statusCode) else {
+                guard let response = response as? HTTPURLResponse,
+                      (200..<300).contains(response.statusCode) else {
                     completionHandler(nil)
                     return
                 }
-                
-//                print(response.statusCode)
+                //print(response.statusCode)
                 
                 guard let data = data else {
                     completionHandler(nil)
                     return
                 }
-                
-//                print(String(data: data, encoding: .utf8))
+                //print(String(data: data, encoding: .utf8))
                 
                 do {
                     let result = try JSONDecoder().decode(Photo.self, from: data)

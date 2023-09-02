@@ -9,11 +9,9 @@ import UIKit
 
 final class SearchViewController: BaseViewController {
     
-    let mainView = SearchView()
-    
     weak var delegate: PassImageDelegate?
-    
-    var imageList = [Photo]()
+    let mainView = SearchView()
+    var photoList: Photo = Photo(total: 0, total_pages: 0, results: [])
     
     override func loadView() {
         self.view = mainView
@@ -38,7 +36,8 @@ final class SearchViewController: BaseViewController {
         print("deinit", self)
     }
     
-    @objc func recommandKeywordNotificationObserver(notification: NSNotification) {
+    @objc
+    func recommandKeywordNotificationObserver(notification: NSNotification) {
         print(#function)
     }
     
@@ -49,30 +48,63 @@ final class SearchViewController: BaseViewController {
     }
 }
 
-//MARK: SearchCollectionView & SearchCollectionViewCell
+//MARK: Network - callRequest
+
+extension SearchViewController {
+    private func callRequest(query: String) {
+        
+        APIService.shared.callRequest(query: query) { photo in
+            
+            guard let photo = photo else { return }
+            
+            self.photoList = photo
+            self.mainView.collectionView.reloadData()
+        }
+    }
+}
+
+//MARK: UICollectionView
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageList.count
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return photoList.results.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: "SearchCollectionViewCell",
             for: indexPath
         ) as? SearchCollectionViewCell
-        else {
-            return UICollectionViewCell()
-        }
+        else { return UICollectionViewCell() }
         
+        let thumb = photoList.results[indexPath.item].urls.thumb
+        
+        guard let url = URL(string: thumb) else { return UICollectionViewCell() }
+        
+        DispatchQueue.global().async {
+            guard let data = try? Data(contentsOf: url) else { return }
+            
+            DispatchQueue.main.async {
+                cell.imageView.image = UIImage(data: data)
+            }
+        }
 //        cell.imageView.image = UIImage(systemName: imageList[indexPath.item])
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         
 //        delegate?.receiveImage(image: UIImage(systemName: imageList[indexPath.item])!)
         
@@ -95,5 +127,9 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         mainView.searchBar.resignFirstResponder() // 현재 FirstResponder를 포기해
+        
+        guard let text = mainView.searchBar.text else { return }
+        
+        self.callRequest(query: text)
     }
 }

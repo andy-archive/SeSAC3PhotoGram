@@ -27,7 +27,7 @@ final class SearchView: BaseView {
         layout.minimumLineSpacing = 8
         layout.minimumInteritemSpacing = 8
         let size = UIScreen.main.bounds.width - 60 // self.frame.width - 40
-        layout.itemSize = CGSize(width: size / 6, height: size / 6)
+        layout.itemSize = CGSize(width: size / 3, height: size / 3)
         return layout
     }
     
