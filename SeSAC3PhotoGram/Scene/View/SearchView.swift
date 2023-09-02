@@ -16,20 +16,16 @@ final class SearchView: BaseView {
     }()
     
     lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
-        view.register(SearchCollectionViewCell.self, forCellWithReuseIdentifier: "SearchCollectionViewCell")
-        view.collectionViewLayout = setCollectionViewLayout()
+        let view = UICollectionView(
+            frame: .zero,
+            collectionViewLayout: .setCollectionViewLayout(numberOfItem: 4, sectionSpacing: 8, itemSpacing: 12)
+        )
+        view.register(
+            SearchCollectionViewCell.self,
+            forCellWithReuseIdentifier: "SearchCollectionViewCell"
+        )
         return view
     }()
-    
-    private func setCollectionViewLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 8
-        layout.minimumInteritemSpacing = 8
-        let size = UIScreen.main.bounds.width - 60 // self.frame.width - 40
-        layout.itemSize = CGSize(width: size / 3, height: size / 3)
-        return layout
-    }
     
     override func configureView() {
         addSubview(searchBar)

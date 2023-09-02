@@ -21,6 +21,7 @@
 		38534B782AA01A7F00638175 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B772AA01A7F00638175 /* HomeView.swift */; };
 		38534B7B2AA0209C00638175 /* HomeViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */; };
 		38895F712AA084890083AE46 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38895F702AA084890083AE46 /* URLSession.swift */; };
+		38C9521A2AA39541002A50BA /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C952192AA39541002A50BA /* UICollectionView+.swift */; };
 		38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */; };
 		38DEF4252A9C1D9B00E73464 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */; };
 		38DEF42C2A9C1D9C00E73464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		38534B7A2AA0209C00638175 /* HomeViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewProtocol.swift; sourceTree = "<group>"; };
 		38895F702AA084890083AE46 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		38895FB32AA181B50083AE46 /* SeSAC3PhotoGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC3PhotoGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		38C952192AA39541002A50BA /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		38DEF4222A9C1D9B00E73464 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38DEF4242A9C1D9B00E73464 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		38DEF42B2A9C1D9C00E73464 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				385073382A9D7BC100B349C1 /* NSNotification+.swift */,
 				38895F702AA084890083AE46 /* URLSession.swift */,
 				3850733E2A9D8E8600B349C1 /* DateFormat+.swift */,
+				38C952192AA39541002A50BA /* UICollectionView+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				38534B782AA01A7F00638175 /* HomeView.swift in Sources */,
 				38534B762AA01A7800638175 /* HomeViewController.swift in Sources */,
 				38534B692A9EEBE100638175 /* URLSessionViewController.swift in Sources */,
+				38C9521A2AA39541002A50BA /* UICollectionView+.swift in Sources */,
 				38DEF4502A9C365D00E73464 /* BaseCollectionViewCell.swift in Sources */,
 				38DEF4232A9C1D9B00E73464 /* AppDelegate.swift in Sources */,
 				38DEF4522A9C37F600E73464 /* SearchCollectionViewCell.swift in Sources */,
