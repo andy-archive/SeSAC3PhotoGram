@@ -8,12 +8,10 @@
 import UIKit
 import SnapKit
 
-final class URLSessionViewController: UIViewController {
+final class URLSessionViewController: BaseViewController {
     
     var session: URLSession!
-    
     var total: Double = 0
-    
     var buffer: Data? {
         didSet {
             let result = Double(buffer?.count ?? 0) / total
@@ -21,14 +19,14 @@ final class URLSessionViewController: UIViewController {
         }
     }
     
-    let progressLabel = {
+    private let progressLabel = {
         let view = UILabel()
         view.backgroundColor = .black
         view.textColor = .white
         return view
     }()
     
-    let imageView = {
+    private let imageView = {
         let view = UIImageView()
         view.backgroundColor = .lightGray
         return view
@@ -38,12 +36,29 @@ final class URLSessionViewController: UIViewController {
         super.viewDidLoad()
         
         buffer = Data()
+
+        let url = "https://apod.nasa.gov/apod/image/2308/M66_JwstTomlinson_3521.jpg"
+        guard let url = URL(string: url) else { return }
         
-        view.backgroundColor = .white
+        // 새로 배우는 delegate 방식
+        session = URLSession(configuration: .default, delegate: self, delegateQueue: .main) // main 스레드에서 작동하도록 구현되어 있다
+        session.dataTask(with: url).resume()
+         
+        // 기존의 completionHandler를 이용한 closure 방식
+        // session.dataTask(with: <#T##URLRequest#>).resume()
+        // URLSession.shared.dataTask(with: <#T##URLRequest#>) { <#Data?#>, <#URLResponse?#>, <#Error?#> in
+        //     <#code#>
+        // }
+    }
+    
+    override func configureView() {
+        super.configureView()
         
         view.addSubview(imageView)
         view.addSubview(progressLabel)
-        
+    }
+    
+    override func setConstraints() {
         progressLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview()
@@ -55,17 +70,6 @@ final class URLSessionViewController: UIViewController {
             make.size.equalTo(200)
         }
         
-        guard let url = URL(string: "https://apod.nasa.gov/apod/image/2308/M66_JwstTomlinson_3521.jpg") else { return }
-        
-        // 새로 배우는 delegate 방식
-        session = URLSession(configuration: .default, delegate: self, delegateQueue: .main) // main 스레드에서 작동하도록 구현되어 있다
-        session.dataTask(with: url).resume()
-         
-        // 기존의 completionHandler를 이용한 closure 방식
-        // session.dataTask(with: <#T##URLRequest#>).resume()
-        // URLSession.shared.dataTask(with: <#T##URLRequest#>) { <#Data?#>, <#URLResponse?#>, <#Error?#> in
-        //     <#code#>
-        // }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -112,11 +116,7 @@ extension URLSessionViewController: URLSessionDataDelegate {
         if let error {
             print(error)
         } else {
-            guard let buffer = buffer else {
-                print(error)
-                return
-            }
-            
+            guard let buffer = buffer else { return }
             imageView.image = UIImage(data: buffer)
         }
     }

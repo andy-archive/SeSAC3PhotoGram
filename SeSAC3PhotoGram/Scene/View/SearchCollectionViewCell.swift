@@ -11,7 +11,6 @@ final class SearchCollectionViewCell: BaseCollectionViewCell {
     
     let imageView = {
         let view = UIImageView()
-        
         view.backgroundColor = .lightGray
         view.contentMode = .scaleToFill
         return view

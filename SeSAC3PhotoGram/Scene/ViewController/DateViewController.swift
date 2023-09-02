@@ -9,7 +9,7 @@ import UIKit
 
 final class DateViewController: BaseViewController {
     
-    let mainView = DateView()
+    private let mainView = DateView()
     
     weak var delegate: PassDateDelegate? // 프로토콜의 값 전달 (2)
     

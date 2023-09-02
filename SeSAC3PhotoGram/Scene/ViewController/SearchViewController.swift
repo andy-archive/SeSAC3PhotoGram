@@ -9,9 +9,9 @@ import UIKit
 
 final class SearchViewController: BaseViewController {
     
+    private let mainView = SearchView()
+    var photoList: Photo = Photo(total: 0, totalPages: 0, results: [])
     weak var delegate: PassImageDelegate?
-    let mainView = SearchView()
-    var photoList: Photo = Photo(total: 0, total_pages: 0, results: [])
     
     override func loadView() {
         self.view = mainView

@@ -7,33 +7,33 @@
 
 import UIKit
 
-class TitleViewController: BaseViewController {
+final class TitleViewController: BaseViewController {
     
-    let textField = {
+    private let textField = {
         let view = UITextField()
         view.placeholder = "제목을 입력하세요"
         return view
     }()
     
-    let redView = {
+    private let redView = {
         let view = UIView()
         view.backgroundColor = .red
         return view
     }()
     
-    let orangeView = {
+    private let orangeView = {
         let view = UIView()
         view.backgroundColor = .black
         return view
     }()
     
-    let yellowView = {
+    private let yellowView = {
         let view = UIView()
         view.backgroundColor = .systemRed
         return view
     }()
     
-    let greenView = {
+    private let greenView = {
         let view = UIView()
         view.backgroundColor = .systemOrange
         return view
@@ -49,29 +49,29 @@ class TitleViewController: BaseViewController {
         // Animation Start UI
         redView.alpha = 0.1
             
-        [orangeView, yellowView, greenView].forEach { view in
-            view.alpha = 0
+        [orangeView, yellowView, greenView].forEach {
+            $0.alpha = 0
         }
         
         // Animation End UI
-        UIView.animate(withDuration: 1, delay: 1, options: [.curveEaseOut, .curveLinear]) {
+        UIView.animate(withDuration: 1, delay: 0.5, options: [.curveEaseOut, .curveLinear]) {
             self.redView.alpha = 1
             self.redView.backgroundColor = .systemRed
             self.redView.layer.borderColor = UIColor.black.cgColor
             self.redView.layer.borderWidth = 1
             self.orangeView.alpha = 0.1
         } completion: { bool in
-            UIView.animate(withDuration: 1, delay: 1, options: [.transitionFlipFromLeft]) {
+            UIView.animate(withDuration: 1, delay: 0.5, options: [.transitionFlipFromLeft]) {
                 self.orangeView.backgroundColor = .systemOrange
                 self.orangeView.alpha = 1
                 self.yellowView.alpha = 0.1
             } completion: { bool in
-                UIView.animate(withDuration: 1, delay: 1, options: [.curveLinear]) {
+                UIView.animate(withDuration: 1, delay: 0.5, options: [.curveLinear]) {
                     self.yellowView.backgroundColor = .systemYellow
                     self.yellowView.alpha = 1
                     self.greenView.alpha = 0.1
                 } completion: { bool in
-                    UIView.animate(withDuration: 1, delay: 1, options: [.transitionCrossDissolve]) {
+                    UIView.animate(withDuration: 1, delay: 0.5, options: [.transitionCrossDissolve]) {
                         self.greenView.backgroundColor = .systemGreen
                         self.greenView.alpha = 1
                     }
@@ -79,14 +79,13 @@ class TitleViewController: BaseViewController {
             }
         }
 
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 1) {
             self.redView.alpha = 1
         }
     }
     
     @objc
     func doneButtonClicked() {
-        
         guard let inputText = textField.text else { return }
         completionHandler?(inputText, 30, false)
         

@@ -11,15 +11,16 @@ final class AddView: BaseView {
     
     let photoImageView = {
         let view = UIImageView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .systemGray4
         view.contentMode = .scaleAspectFill
         return view
     }()
     
     let searchButton = {
         let view = UIButton()
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemGray
         let image = UIImage(systemName: "magnifyingglass")
+        view.tintColor = .white
         view.setImage(image, for: .normal)
         return view
     }()
@@ -41,6 +42,7 @@ final class AddView: BaseView {
     let searchProtocolButton = {
         let view = UIButton()
         view.backgroundColor = .systemBlue
+        view.setTitle("protocol", for: .normal)
         return view
     }()
     
@@ -82,7 +84,7 @@ final class AddView: BaseView {
         }
         
         searchProtocolButton.snp.makeConstraints { make in
-            make.size.equalTo(50)
+            make.height.equalTo(50)
             make.bottom.leading.equalTo(photoImageView)
         }
         

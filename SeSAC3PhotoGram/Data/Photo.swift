@@ -57,8 +57,14 @@ import Foundation
 
 struct Photo: Codable {
     let total: Int
-    let total_pages: Int
+    let totalPages: Int
     let results: [PhotoResult]
+
+    enum CodingKeys: String, CodingKey {
+        case total
+        case totalPages = "total_pages"
+        case results
+    }
 }
 
 struct PhotoResult: Codable {
